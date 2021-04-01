@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1617136437 source:c:\users\tabajara\documents\crud backup\main.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+	<locale.h>
+
