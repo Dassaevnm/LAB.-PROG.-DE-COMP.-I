@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <locale.h>
-#define TAMANHO 10 //Declaração de constante, pode ser alterado conforme a necessidade do usuário de armazenar mais cartas.
+#define TAMANHO 10 //DeclaraÃ§Ã£o de constante, pode ser alterado conforme a necessidade do usuÃ¡rio de armazenar mais cartas.
 
 char artista[TAMANHO][50];          // Recebe o nome do artista da gravura usada.
 char caixa_de_texto[TAMANHO][500];  // Recebe a descricao das habilidades da carta.
@@ -12,19 +12,19 @@ char formatos_validos[TAMANHO][50]; // Recebe a descricao de quais formatos de j
 char linha_de_tipo[TAMANHO][50];    // Recebe o tipo da carta.
 char subtipo[TAMANHO][50];          // Recebe o subtipo da carta.
 char titulo[TAMANHO][50];           // Recebe o nome da carta.
-char custo_de_mana[TAMANHO][50];    // Recebe o custo para conjurar a mágica.
-char ed_numero[TAMANHO][50];        // Recebe o nome da edição e o número que a carta representa na coleção.
-char poder[TAMANHO][50];            // Recebe o valor da quantidade de dano que a criatura causar em combate.
-char resistencia[TAMANHO][50];      // Recebe o valor da quantidade de dano que ela tem que sofrer em um único turno para ser destruída.
-char preco_medio[TAMANHO][50];      // Recebe o valor do preço médio em reais qua a carta custa.
+char custo_de_mana[TAMANHO][50];    // Recebe o custo para conjurar a mÃ¡gica.
+char ed_numero[TAMANHO][50];        // Recebe o nome da ediÃ§Ã£o e o nÃºmero que a carta representa na coleÃ§Ã£o.
+int poder[TAMANHO][50];            // Recebe o valor da quantidade de dano que a criatura causar em combate.
+int resistencia[TAMANHO][50];      // Recebe o valor da quantidade de dano que ela tem que sofrer em um Ãºnico turno para ser destruÃ­da.
+float preco_medio[TAMANHO][50];      // Recebe o valor do preÃ§o mÃ©dio em reais qua a carta custa.
 char raridade[TAMANHO][50];         // Recebe a indicacao de qual a raridade da carta.
 
-int opcao;              //Variável usada para escolha de opções do usuário.
+int opcao;              //VariÃ¡vel usada para escolha de opÃ§Ãµes do usuÃ¡rio.
 
-void cadastro();        //Códigos da parte de cadastro.
-void pesquisa();        //Códigos da parte de pesquisa.
-void lista();           //Códigos da parte de lista.
-void editar();          //Códigos da parte de edição de dados.
+void cadastro();        //CÃ³digos da parte de cadastro.
+void pesquisa();        //CÃ³digos da parte de pesquisa.
+void lista();           //CÃ³digos da parte de lista.
+void editar();          //CÃ³digos da parte de ediÃ§Ã£o de dados.
 
 int main(void) {
 
@@ -39,40 +39,40 @@ int main(void) {
         printf("  --------------------------------------------------------------------------- \n\n");
 
 
-        printf("1 - Cadastrar nova carta\n2 - Listar todas as cartas cadastradas\n3 - Pesquisar carta\n4 - Editar cadastro\n5 - Sair\n");       //Opções principais do programa para escolha do usuário.
-        printf("\nSelecione uma opção de 1 a 5 por favor: ");       //Usuário digita um número de 1 a 5.
+        printf("1 - Cadastrar nova carta\n2 - Listar todas as cartas cadastradas\n3 - Pesquisar carta\n4 - Editar cadastro\n5 - Sair\n");       //OpÃ§Ãµes principais do programa para escolha do usuÃ¡rio.
+        printf("\nSelecione uma opÃ§Ã£o de 1 a 5 por favor: ");       //UsuÃ¡rio digita um nÃºmero de 1 a 5.
         scanf("%d", &opcao);        //opcao recebe esse valor digitado.
 
 
-        switch (opcao) {        //Entra na função referente ao valor digitado.
+        switch (opcao) {        //Entra na funÃ§Ã£o referente ao valor digitado.
             case 1:
-                cadastro();     //Entra na função cadastro.
+                cadastro();     //Entra na funÃ§Ã£o cadastro.
                 break;
             case 2:
-                lista();        //Entra na função lista.
+                lista();        //Entra na funÃ§Ã£o lista.
                 break;
             case 3:
-                pesquisa();     //Entra na função pesquisa.
+                pesquisa();     //Entra na funÃ§Ã£o pesquisa.
                 break;
             case 4:
-                editar();       //Entra na função editar dados.
+                editar();       //Entra na funÃ§Ã£o editar dados.
                 break;
             case 5:
                 fflush(stdin);      //Limpando o buffer do teclado.
-                system("exit");     //Opção de sair do programa.
+                system("exit");     //OpÃ§Ã£o de sair do programa.
                 break;
 
             default:
 
-                printf("\nOpção inválida!\n");      //Caso o usuário não digite um número entre as opções dadas.
+                printf("\nOpÃ§Ã£o invÃ¡lida!\n");      //Caso o usuÃ¡rio nÃ£o digite um nÃºmero entre as opÃ§Ãµes dadas.
                 getchar();
                 getchar();
                 break;
 
         }
-    } while (opcao!=5);         //Enquanto o usuário não digitar a opção para sair do programa, o Menu principal será chamado.
+    } while (opcao!=5);         //Enquanto o usuÃ¡rio nÃ£o digitar a opÃ§Ã£o para sair do programa, o Menu principal serÃ¡ chamado.
 
-} //Fim da função menu
+} //Fim da funÃ§Ã£o menu
 
 void cadastro() {
     static int linha;
@@ -101,35 +101,35 @@ void cadastro() {
         printf("\nDigite a raridade da carta: ");
         gets(raridade[linha]);
 
-        printf("\nDigite o número referente ao poder da carta: ");
+        printf("\nDigite o nÃºmero referente ao poder da carta: ");
         gets(poder[linha]);
 
-        printf("\nDigite o número referente a resistência da carta: ");
+        printf("\nDigite o nÃºmero referente a resistÃªncia da carta: ");
         gets(resistencia[linha]);
 
         printf("\nDigite o custo de mana da carta: ");
         gets(custo_de_mana[linha]);
 
-        printf("\nDigite os formatos válidos da carta: ");
+        printf("\nDigite os formatos vÃ¡lidos da carta: ");
         gets(formatos_validos[linha]);
 
         printf("\nDigite o nome do artista da carta: ");
         gets(artista[linha]);
 
-        printf("\nDigite o nome da edição e o número da carta: ");
+        printf("\nDigite o nome da ediÃ§Ã£o e o nÃºmero da carta: ");
         gets(ed_numero[linha]);
 
-        printf("\nDigite o preço médio da carta R$: ");
+        printf("\nDigite o preÃ§o mÃ©dio da carta R$: ");
         gets(preco_medio[linha]);
 
-        printf("\nA carta foi armazenada na posição %d.\n", linha);
+        printf("\nA carta foi armazenada na posiÃ§Ã£o %d.\n", linha);
 
         printf("\n1 - Cadastrar outra carta.\n0 - Voltar ao MENU PRINCIPAL.\n");
         scanf(" %d", &opcao);
 
-        linha++;        //Avança para a próxima posição na memória para novo armazenamento.
+        linha++;        //AvanÃ§a para a prÃ³xima posiÃ§Ã£o na memÃ³ria para novo armazenamento.
         }
-        while (opcao==1);       //Se usuário digitar 1 ele continua cadastrando, qualquer outro número ele volta para menu principal.
+        while (opcao==1);       //Se usuÃ¡rio digitar 1 ele continua cadastrando, qualquer outro nÃºmero ele volta para menu principal.
 
 
 } //Fim da funcao cadastro
@@ -141,17 +141,17 @@ void pesquisa(){
     char pesquisatitulo[50];
     int i;
 
-                printf("\nDigite o nome da carta já cadastrada que você deseja encontrar: ");
+                printf("\nDigite o nome da carta jÃ¡ cadastrada que vocÃª deseja encontrar: ");
                 gets(pesquisatitulo);
                 for(i=0;i<TAMANHO;i++){         //Percorre o vetor.
 
-                        if(strcmp(titulo[i],pesquisatitulo)==0)         //Compara o que está nos vetores, com o que foi digitado pelo usuário.
-                        printf("\n\nSeguem os dados da carta cadastrada:\n\nPosição de cadastro: %d\nNome: %s\nTexto: %s\nCor: %s\nTipo: %s\nSubtipo: %s\nCusto de mana: %s\nRaridade: %s\nPoder: %s\nResistência: %s\nArtista: %s\nNome e número da edição: %s\nFormatos válidos: %s\nPreço médio R$ %s\n\n", i, titulo[i],caixa_de_texto[i],cor[i],linha_de_tipo[i],subtipo[i],custo_de_mana[i],raridade[i],poder[i],resistencia[i],artista[i],ed_numero[i],formatos_validos[i],preco_medio[i]);
+                        if(strcmp(titulo[i],pesquisatitulo)==0)         //Compara o que estÃ¡ nos vetores, com o que foi digitado pelo usuÃ¡rio.
+                        printf("\n\nSeguem os dados da carta cadastrada:\n\nPosiÃ§Ã£o de cadastro: %d\nNome: %s\nTexto: %s\nCor: %s\nTipo: %s\nSubtipo: %s\nCusto de mana: %s\nRaridade: %s\nPoder: %s\nResistÃªncia: %s\nArtista: %s\nNome e nÃºmero da ediÃ§Ã£o: %s\nFormatos vÃ¡lidos: %s\nPreÃ§o mÃ©dio R$ %s\n\n", i, titulo[i],caixa_de_texto[i],cor[i],linha_de_tipo[i],subtipo[i],custo_de_mana[i],raridade[i],poder[i],resistencia[i],artista[i],ed_numero[i],formatos_validos[i],preco_medio[i]);
                         }
                         getchar();
                         getchar();
 
-} //Fim da função pesquisa
+} //Fim da funÃ§Ã£o pesquisa
 
 void lista(){
     system("cls");
@@ -159,11 +159,11 @@ void lista(){
 
     int i;
     for(i=0;i<TAMANHO;i++) {
-        if (titulo[i][0] != '\0') {         //Lista todas as cartas que não tem um espaço vazio na primeira posição.
-            printf("\n\nSeguem os dados da carta cadastrada na posição %d:\n\nNome: %s\nTexto: %s\nCor: %s\nTipo: %s\nSubtipo: %s\nCusto de mana: %s\nRaridade: %s\nPoder: %s\nResistência: %s\nArtista: %s\nNome e número da edição: %s\nFormatos válidos: %s\nPreço médio R$ %s\n\n", i, titulo[i], caixa_de_texto[i], cor[i], linha_de_tipo[i], subtipo[i], custo_de_mana[i],raridade[i], poder[i], resistencia[i], artista[i], ed_numero[i], formatos_validos[i], preco_medio[i]);
+        if (titulo[i][0] != '\0') {         //Lista todas as cartas que nÃ£o tem um espaÃ§o vazio na primeira posiÃ§Ã£o.
+            printf("\n\nSeguem os dados da carta cadastrada na posiÃ§Ã£o %d:\n\nNome: %s\nTexto: %s\nCor: %s\nTipo: %s\nSubtipo: %s\nCusto de mana: %s\nRaridade: %s\nPoder: %s\nResistÃªncia: %s\nArtista: %s\nNome e nÃºmero da ediÃ§Ã£o: %s\nFormatos vÃ¡lidos: %s\nPreÃ§o mÃ©dio R$ %s\n\n", i, titulo[i], caixa_de_texto[i], cor[i], linha_de_tipo[i], subtipo[i], custo_de_mana[i],raridade[i], poder[i], resistencia[i], artista[i], ed_numero[i], formatos_validos[i], preco_medio[i]);
         }
         else{
-            printf("Não há mais cartas cadastradas na base de dados.");
+            printf("NÃ£o hÃ¡ mais cartas cadastradas na base de dados.");
             getchar();
 
             break;
@@ -175,20 +175,20 @@ void lista(){
 main();
 
 
- //Fim da função lista
+ //Fim da funÃ§Ã£o lista
 
 void editar(){
     system("cls");
     fflush(stdin);
 
     int i;
-    printf("\nDigite o número da posição da carta que você deseja substituir os dados armazendos.\n");
-    printf("Obs. Verificar a posição de cada carta já armazenada na opção 'lista' do menu principal\n\n");
+    printf("\nDigite o nÃºmero da posiÃ§Ã£o da carta que vocÃª deseja substituir os dados armazendos.\n");
+    printf("Obs. Verificar a posiÃ§Ã£o de cada carta jÃ¡ armazenada na opÃ§Ã£o 'lista' do menu principal\n\n");
     scanf("%d", &i);
 
-    printf("\n\nFoi escolhida a posição %d.\n\n", i);
+    printf("\n\nFoi escolhida a posiÃ§Ã£o %d.\n\n", i);
 
-        if(titulo[i][0]!='\0'){     //Caso a posição 0 esteja vazia, ele considera que não tem carta cadastrada alí.
+        if(titulo[i][0]!='\0'){     //Caso a posiÃ§Ã£o 0 esteja vazia, ele considera que nÃ£o tem carta cadastrada alÃ­.
         fflush(stdin);
 
         printf("\nDigite o nome da nova carta: ");
@@ -209,39 +209,39 @@ void editar(){
         printf("\nDigite a raridade da nova carta: ");
         gets(raridade[i]);
 
-        printf("\nDigite o número referente ao poder da nova carta: ");
+        printf("\nDigite o nÃºmero referente ao poder da nova carta: ");
         gets(poder[i]);
 
-        printf("\nDigite o número referente a resistência da nova carta: ");
+        printf("\nDigite o nÃºmero referente a resistÃªncia da nova carta: ");
         gets(resistencia[i]);
 
         printf("\nDigite o custo de mana da nova carta: ");
         gets(custo_de_mana[i]);
 
-        printf("\nDigite os formatos válidos da nova carta: ");
+        printf("\nDigite os formatos vÃ¡lidos da nova carta: ");
         gets(formatos_validos[i]);
 
         printf("\nDigite o nome do artista da nova carta: ");
         gets(artista[i]);
 
-        printf("\nDigite o nome da edição e o número da nova carta: ");
+        printf("\nDigite o nome da ediÃ§Ã£o e o nÃºmero da nova carta: ");
         gets(ed_numero[i]);
 
-        printf("\nDigite o preço médio da nova carta R$: ");
+        printf("\nDigite o preÃ§o mÃ©dio da nova carta R$: ");
         gets(preco_medio[i]);
 
-        printf("\nA nova carta foi armazenada na posição %d.\n", i);
+        printf("\nA nova carta foi armazenada na posiÃ§Ã£o %d.\n", i);
 
         getchar();
 
-        }else{          //Caso não exista carta cadastrada na posição digitada, segue uma mensagem informando como proceder.
-        printf("\n\nNão existe carta cadastrada na posição %d. Por favor verifique o valor correto e tente novamente.\n",i);
+        }else{          //Caso nÃ£o exista carta cadastrada na posiÃ§Ã£o digitada, segue uma mensagem informando como proceder.
+        printf("\n\nNÃ£o existe carta cadastrada na posiÃ§Ã£o %d. Por favor verifique o valor correto e tente novamente.\n",i);
         getchar();
         getchar();
         }
 
         main();
 
-} //Fim da função editar
+} //Fim da funÃ§Ã£o editar
 
 
